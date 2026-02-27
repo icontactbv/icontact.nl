@@ -22,11 +22,11 @@ jobs:
         uses: aws-actions/configure-aws-credentials@v4
         with:
           role-to-assume: arn:aws:iam::860340501095:role/GitHubActionsS3CloudFrontDeployIcontact
-          aws-region: eu-west-1
+          aws-region: eu-west-3
 
       - name: Sync site to S3
         env:
-          BUCKET: vincent-s3testbucket
+          BUCKET: arn:aws:s3:::icontactnl-website
           SITE_DIR: .
         run: |
           aws s3 sync "$SITE_DIR" "s3://$BUCKET/" --delete
