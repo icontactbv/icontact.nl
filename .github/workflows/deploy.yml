@@ -26,7 +26,7 @@ jobs:
 
       - name: Sync site to S3
         env:
-          BUCKET: arn:aws:s3:::icontactnl-website
+          BUCKET: icontactnl-website.s3-eu-west-1.amazonaws.com
           SITE_DIR: .
         run: |
           aws s3 sync "$SITE_DIR" "s3://$BUCKET/" --delete
